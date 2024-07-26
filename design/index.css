@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+:root {
+    --phone-width: 260px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+    font-family: "Rubik", Arial, Helvetica, sans-serif;
+}
+body {
+    font-size: 16px;
+}
+.banner {
+    position: absolute;
+    width: 50%;
+    max-width: 400px;
+    height: 470px;
+    /* background-color: gold; */
+    z-index: -1;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    left: -60px;
+    top: -50px;
+    scale: 1.2;
+    background: linear-gradient(to right, hsl(263, 100%, 63%), hsl(264, 100%, 61%));
+    opacity: .9;
+}
+.wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+.phone {
+    width: var(--phone-width);
+    background-color: hsl(0, 0%, 96%);
+    padding: 10px;
+    box-shadow: 0px 10px 20px 1px rgba(0, 0, 0, 0.281);
+    border-radius: 25px;
+    transform: scale(0.85, 0.9);
+    margin-top: 30px;
+    opacity: 0;
+    animation: visible 3s forwards;
+}
+@keyframes visible {
+    from {
+        opacity: 0;
+        transform: scale(1.1, 1.1);
+    }
+    to {
+        opacity: 1;
+    }
+}
+.phone .colorwrapper {
+    background-color: hsl(270, 20%, 96%);
+    border-radius: 50% 50% 0 0;
+}
+.phone .header {
+    background: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%));
+    display: flex;
+    padding: 29px 4px 7px;
+    justify-content: flex-start;
+    border-radius: 20px 20px 10px 10px;
+    position: relative;
+}
+.phone .header::after {
+    content: '';
+    --width: 60%;
+    width: var(--width);
+    position: absolute;
+    height: 20px;
+    background-color: white;
+    top: 0;
+    transform: translateX(calc(var(--phone-width) / 2)) translateX(calc(-1 * var(--width)));
+    border-radius: 0 0 17px 17px;
+}
+.phone .header .arrow {
+    border: solid white;
+    border-width: 2px 0 0 2px;
+    padding: 2px;
+    width: 10px;
+    height: 10px;
+    align-self: center;
+    transform: rotateZ(-45deg);
+    border-radius: 2px;
+    margin: 0 10px 0;
+}
+.phone .header img {
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-right: 10px;
+    /* margin-left: 20px; *//* for the small arrow */
+}
+.phone .header .identifier {
+    flex: 1 1;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header .identifier .name{
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+.header .identifier .status {
+    font-size: 10px;
+    opacity: .7;
+}
+.threedot {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+    align-items: flex-end;
+    justify-items: center;
+    margin-right: 14px;
+}
+.threedot span {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+}
+.phone .phone-content {
+    background-color: hsl(270, 20%, 96%);
+    font-size: 11px;
+    display: grid;
+    row-gap: 8px;
+    max-height: 400px;
+    overflow: hidden;
+}
+.phone-content .chat {
+    width: auto;
+    max-width: 65%;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+.phone-content .chat.right {
+    margin-left: auto;
+    border-radius: 10px 10px 0px 10px;
+    background-color: white;
+    color: rgb(95, 95, 95);
+}
+.phone-content .chat.left {
+    border-radius: 10px 10px 10px 0px;
+    background-color: rgba(160, 160, 160, 0.212);
+    color: rgb(122, 56, 122);
+}
+.phone-content .chat.images {
+    background-color: rgba(128, 97, 97, 0);
+    box-shadow: 0 0 0 0;
+}
+.phone-content .chat.images img {
+    width: 35px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.phone-content .chat.right.images {
+    padding-right: 0;
+}
+.phone-content .chat.left.images {
+    padding-left: 0;
+}
+.phone-content .options {
+    padding: 10px 7px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    color: white;
+    align-items: center;
+}
+.phone-content .left.options {
+    background: linear-gradient(to left, hsl(264, 100%, 61%), hsl(293, 100%, 63%))
+}
+.phone-content .right.options { /* does nothing in the example but in a real chat would be important to implement a similar feature */
+    background: linear-gradient(to right, hsl(264, 100%, 61%), hsl(293, 100%, 63%))
+}
+.phone-content .select {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid hsl(289, 100%, 72%);
+    margin-right: 8px;
+}
+.phone-content .desc {
+    color: rgba(255, 255, 255, 0.616);
+    font-size: .8em;
+    letter-spacing: 1.1px;
+    font-weight: 700;
+}
+.phone-content .price {
+    font-weight: bold;
+    justify-self: flex-start;
+    font-size: 14px;
+}
+.phone-content .messageInput {
+    background-color: white;
+    height: 37px;
+    border-radius: 20px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: rgba(128, 128, 128, 0.644);
+    position: relative;
+}
+.phone-content .messageInput .circle {
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    right: 7px;
+    border-radius: 50%;
+    background-color: hsl(271, 36%, 24%);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.messageInput .circle .arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    border-radius: 2px;
+    transform: translateX(-1px) rotateZ(-45deg);
+}
+.text {
+    padding: 20px 35px;
+    text-align: center;
+    max-width: 340px;
+}
+.text .textHeader {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 26px;
+}
+.text .textContent {
+    line-height: 23px;
+    color: rgb(153, 153, 153);
+    font-size: 14px;
+}
+
+@media (min-width: 750px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+    .phone {
+        justify-self: flex-end;
+        margin-right: 70px;
+    }
+    .text {
+        justify-self: flex-start;
+        width: 400px;
+        height: 200px;
+        text-align: left;
+        padding-left: 10px;
+    }
+    .banner {
+        height: 80vh;
+    }
+    .attribution {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+}
